@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swimming Pool Booking</title>
+    <link rel="stylesheet" href="Swimming.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Swimming Pool Booking</h1>
+        <div class="booking-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <select id="numberPeople" required>
+                <option value="" disabled selected>Select Number of People</option>
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+            </select>
+            <select id="purpose" required>
+                <option value="" disabled selected>Select Purpose</option>
+                <option value="swimming">Only Swimming</option>
+                <option value="party">Normal Party</option>
+            </select>
+            <input type="text" id="charges" readonly placeholder="Charges">
+            <button onclick="calculateCharges()">Calculate Charges</button>
+            <button onclick="bookNow()">Book Now</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

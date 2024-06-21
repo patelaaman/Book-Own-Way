@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>HOTEL GP</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+        <link rel = "icon" href = "image/logo.png" type = "image/png">
+    </head>
+    <body>
+        
+        <!-- header -->
+        <header class = "header" id = "header">
+            <div class = "head-top">
+                <div class = "site-name">
+                    <span>BOOKING SYSTEM</span>
+                </div>
+                <div class = "site-nav">
+                    <span id = "nav-btn">MENU <i class = "fas fa-bars"></i></span>
+                </div>
+            </div>
+
+            <div class = "head-bottom flex">
+                <h2>BOOK OWN WAY</h2>
+                <p>NICE AND COMFORTABLE PLACE TO STAY</p>
+                <button type = "button" class = "head-btn">GET STARTED</button>
+                <button class="head-btn" type="button" onclick="getlocation();">
+                    Current Location
+                </button>
+                <div id="demo2" style="width: 500px; height: 250px"></div>
+        
+            </div>
+        </header>
+               <script src="https://maps.google.com/maps/api/js?sensor=false">
+        </script>
+        <script type="text/javascript">
+            function getlocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showLoc, errHand);
+                }
+            }
+            function showLoc(pos) {
+                latt = pos.coords.latitude;
+                long = pos.coords.longitude;
+                var lattlong = new google.maps.LatLng(latt, long);
+                var OPTions = {
+                    center: lattlong,
+                    zoom: 10,
+                    mapTypeControl: true,
+                    navigationControlOptions: {
+                        style: google.maps.NavigationControlStyle.SMALL,
+                    },
+                };
+                var mapg = new google.maps.Map(
+                    document.getElementById("demo2"),
+                    OPTions
+                );
+                var markerg = new google.maps.Marker({
+                    position: lattlong,
+                    map: mapg,
+                    title: "You are here!",
+                });
+            }
+     
+            function errHand(err) {
+                switch (err.code) {
+                    case err.PERMISSION_DENIED:
+                        result.innerHTML =
+                            "The application doesn't have the permission" +
+                            "to make use of location services";
+                        break;
+                    case err.POSITION_UNAVAILABLE:
+                        result.innerHTML = 
+                              "The location of the device is uncertain";
+                        break;
+                    case err.TIMEOUT:
+                        result.innerHTML = 
+                              "The request to get user location timed out";
+                        break;
+                    case err.UNKNOWN_ERROR:
+                        result.innerHTML =
+                            "Time to fetch location information exceeded" +
+                            "the maximum timeout interval";
+                        break;
+                }
+            }
+        </script>
+        
+        <!-- end of header -->
+
+        <!-- side navbar -->
+        <div class = "sidenav" id = "sidenav">
+            <span class = "cancel-btn" id = "cancel-btn">
+                <i class = "fas fa-times"></i>
+            </span>
+
+            <ul class = "navbar">
+                <li><a href = "#header">home</a></li>
+                <li><a href = "#services">services</a></li>
+                <li><a href = "#rooms">rooms</a></li>
+                <li><a href = "#customers">customers</a></li>
+            </ul>
+            <a href="Register.html"><button class = "btn sign-up">sign up</button></a>
+           <a href="login.jsp"> <button class = "btn log-in">log in</button></a>
+        </div>
+        <!-- end of side navbar -->
+
+        <!-- fullscreen modal -->
+        <div id = "modal"></div>
+        <!-- end of fullscreen modal -->
+
+        <!-- body content  -->
+        <section class = "services sec-width" id = "services">
+            <div class = "title">
+                <h3>Restaurant Booking
+                </h3>
+            </div>
+            <div class = "services-container">
+                <!-- single service -->
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                            <i class = "fas fa-utensils"></i>
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/Corner.jpg" width="200px"  height="250px">
+                        <h2>TABBER HOUSE</h2>
+                        <p>A Party is a gathering As part of a Life</p>
+                        <a href="Register.html"><button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <!-- end of single service -->
+                <!-- single service -->
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                            <i class = "fas fa-utensils"></i>
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/Effotlet.jpg"  width="350px"  height="250px">
+                        <h2>EFFOTLET RES.</h2>
+                        <p>It's also a good time to build  cross- generation relationships</p>
+                       <a href="Register.html"> <button type = "button" class= "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <!-- end of single service -->
+                <!-- single service -->
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                            <i class = "fas fa-utensils"></i>
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                       <img src="./image/Family.jpeg">
+                        <h2>FAMILY RES.</h2>
+                        <p>range for your hotel room  booking  and get option accordingly</p>
+                       <a href="Register.html"> <button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <!-- end of single service -->
+                <!-- single service -->
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                            <i class = "fas fa-utensils"></i>
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/milan.jpeg">
+                        <h2>MILAN RES.</h2>
+                        <p>range for your hotel room  booking  and get option accordingly</p>
+                        <a href="Register.html"><button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                            <i class = "fas fa-utensils"></i>
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/Manohar.jpg">
+                        <h2>MANOHAR RES.</h2>
+                        <p>Famous for all types of chaat like ,pani puri , dahi puri ,bhel puri.</p>
+                       <a href="Register.html"> <button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                            <i class = "fas fa-utensils"></i>
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/Rooftop.jpg">
+                        <h2>ROOFTOP </h2>
+                        <p>Famous for all types of Party ,which type you want.</p>
+                       <a href="Register.html"> <button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <!-- end of single service -->
+            </div>
+        </section>
+        <hr >
+        <section class = "services sec-width" id = "services">
+            <div class = "title">
+                <h3>Garden Booking
+                </h3>
+            </div>
+            <div class = "services-container">
+                <!-- single service -->
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                          
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/G1BanquetHall.jpg" width="200px"  height="250px">
+                        <h2>Banuet Hall Marriage Garden</h2>
+                        <p>A Party is a gathering As part of a Life</p>
+                        <a href="Garden.html"><button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <!-- end of single service -->
+                <!-- single service -->
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                           
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/G2AkankshaMari.jpg"  width="350px"  height="250px">
+                        <h2>Akanksha Marriage Garden</h2>
+                        <p>It's also a good time to build  cross- generation relationships</p>
+                       <a href="Garden.html"> <button type = "button" class= "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <!-- end of single service -->
+                <!-- single service -->
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                          
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                       <img src="./image/G3Manglam.png">
+                        <h2>Manglam Marriage Garden </h2>
+                        <p>range for your hotel room  booking  and get option accordingly</p>
+                       <a href="Garden.html"> <button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <!-- end of single service -->
+                <!-- single service -->
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                           
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/G4ShaadyanaLawn.jpeg">
+                        <h2>Shaadyana Lawn Garden</h2>
+                        <p>range for your hotel room  booking  and get option accordingly</p>
+                        <a href="Garden.html"><button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                            
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/G5GulmoharM.jpg">
+                        <h2>Gulmohar Marriage Garden</h2>
+                        <p>Famous for all types of chaat like ,pani puri , dahi puri ,bhel puri.</p>
+                       <a href="Garden.html"> <button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                           
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/G6DhaaraMansionMariegeHall.jpeg">
+                        <h2>Dhaara Mansion Mariege Hall</h2>
+                        <p>Famous for all types of Party ,which type you want.</p>
+                       <a href="Garden.html"> <button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <!-- end of single service -->
+            </div>
+        </section>
+        <hr >
+        <section class = "services sec-width" id = "services">
+            <div class = "title">
+                <h3>SwimmingPool Booking
+                </h3>
+            </div>
+            <div class = "services-container">
+                <!-- single service -->
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                          
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/Sw1Tajjpg.jpg" width="200px"  height="250px">
+                        <h2>Taj Hotel Swimming Pool</h2>
+                        <p>A Party is a gathering As part of a Life</p>
+                        <a href="Swimming.html"><button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <!-- end of single service -->
+                <!-- single service -->
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                           
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/Sw2sayaji.jpg"  width="350px"  height="250px">
+                        <h2>Sayaji Hotel Swimming Pool</h2>
+                        <p>It's also a good time to build  cross- generation relationships</p>
+                       <a href="Swimming.html"> <button type = "button" class= "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <!-- end of single service -->
+                <!-- single service -->
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                          
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                       <img src="./image/Sw3Radition.jpg">
+                        <h2>Radition Hotel Swimming pool </h2>
+                        <p>range for your hotel room  booking  and get option accordingly</p>
+                       <a href="Swimming.html"> <button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <!-- end of single service -->
+                <!-- single service -->
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                           
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/Sw4Enrise.jpg">
+                        <h2>Enrise Hotel Swimming Pool
+                        </h2>
+                        <p>range for your hotel room  booking  and get option accordingly</p>
+                        <a href="Swimming.html"><button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                            
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/Sw5jehan.jpg">
+                        <h2>Jehan Hotel Swimming Pool</h2>
+                        <p>Famous for all types of chaat like ,pani puri , dahi puri ,bhel puri.</p>
+                       <a href="Swimming.html"> <button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <article class = "service">
+                    <div class = "service-icon">
+                        <span>
+                           
+                        </span>
+                    </div>
+                    <div class = "service-content">
+                        <img src="./image/Sw6Wood.jpg">
+                        <h2>Wood Hotel Swimming Pool</h2>
+                        <p>Famous for all types of Party ,which type you want.</p>
+                       <a href="Swimming.html"> <button type = "button" class = "btn">Book Now</button></a>
+                    </div>
+                </article>
+                <!-- end of single service -->
+            </div>
+        </section>
+
+       <div id="bookingForm">
+        <div class = "book">
+            <form  class = "book-form" >
+                <div class = "form-item">
+                    <label for = "checkin-date">Check In Date: </label>
+                    <input type = "date" id = "chekin-date">
+                </div>
+                <div class = "form-item">
+                    <label for = "checkout-date">Check Out Date: </label>
+                    <input type = "date" id = "chekout-date">
+                </div>
+                <div class = "form-item">
+                    <label for = "adult">Adults: </label>
+                    <input type = "number" min = "1" value = "1" id = "adult">
+                </div>
+                <div class = "form-item">
+                    <label for = "children">Children: </label>
+                    <input type = "number" min = "1" value = "1" id = "children">
+                </div>
+                <div class = "form-item">
+                    <label for = "rooms">Rooms: </label>
+                    <input type = "number" min = "1" value = "1" id = "rooms">
+                </div>
+                <div class = "form-item">
+                    <input onclick="bookTable()" type = "submit" class = "btn" value = "Book Now">
+                </div>
+               
+            </form>
+            
+        </div>
+    </div>
+    <div id="confirmation" style="display:none;">
+        <p>Thank you for booking! Your table is reserved.</p>
+    </div>
+
+        <section class = "rooms sec-width" id = "rooms">
+            <div class = "title">
+                <h2>Hotel rooms</h2>
+            </div>
+            <div class = "rooms-container">
+                <!-- single room -->
+                <article class = "room">
+                    <div class = "room-image">
+                        <img src = "image/img1.jpg" alt = "room image">
+                    </div>
+                    <div class = "room-text">
+                        <h3>Rain Tree Hotel</h3>
+                        <ul>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                  With Ac Room
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                 With Fresh BathRoom
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+             6                   Lorem ipsum dolor sit amet.
+                            </li>
+                        </ul>
+                       
+                        <p class = "rate">
+                            <span>2000 Rupees /</span> Per Night
+                        </p>
+                      <a href="resume.html">  <button  type = "button" class = "btn">book now</button></a>
+                    </div>
+                </article>
+                <!-- end of single room -->
+                <!-- single room -->
+                <article class = "room">
+                    <div class = "room-image">
+                        <img src = "image/img2.jpg" alt = "room image">
+                    </div>
+                    <div class = "room-text">
+                        <h3>Star Hotel</h3>
+                        <ul>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                        </ul>
+                        <p class = "rate">
+                            <span>3000 Rupees /</span> Per Night
+                        </p>
+                      <a href="Restaurent.html">  <button type = "button" class = "btn">book now</button> </a>
+                    </div>
+                </article>
+                <!-- end of single room -->
+                <!-- single room -->
+                <article class = "room">
+                    <div class = "room-image">
+                        <img src = "image/H1RedissionHotel.jpg" alt = "room image">
+                    </div>
+                    <div class = "room-text">
+                        <h3>Redission Hotel</h3>
+                        <ul>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                        </ul>
+                       
+                        <p class = "rate">
+                            <span>1500 Rupees /</span> Per Night
+                        </p>
+                       <a href="Restaurent.html"> <button type = "button" class = "btn">book now</button></a>
+                    </div>
+                </article>
+                <article class = "room">
+                    <div class = "room-image">
+                        <img src = "image/h2jahanNumaPalaceHotel.jpeg" alt = "room image">
+                    </div>
+                    <div class = "room-text">
+                        <h3>Jahan Numa Palace Hotel</h3>
+                        <ul>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                        </ul>
+                       
+                        <p class = "rate">
+                            <span>1000 Rupees /</span> Per Night
+                        </p>
+                       <a href="Restaurent.html"> <button type = "button" class = "btn">book now</button></a>
+                    </div>
+                </article>
+                <article class = "room">
+                    <div class = "room-image">
+                        <img src = "image/H3TajLakePalace.webp" alt = "room image">
+                    </div>
+                    <div class = "room-text">
+                        <h3>Taj Lake Palace Hotel</h3>
+                        <ul>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                        </ul>
+                       
+                        <p class = "rate">
+                            <span>2500 Rupees /</span> Per Night
+                        </p>
+                      <a href="Restaurent.html">  <button type = "button" class = "btn">book now</button> </a>
+                    </div>
+                </article>
+                <article class = "room">
+                    <div class = "room-image">
+                        <img src = "image/H4SalimarHotel.jpg" alt = "room image">
+                    </div>
+                    <div class = "room-text">
+                        <h3>Salimar Hotel</h3>
+                        <ul>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Lorem ipsum dolor sit amet.
+                            </li>
+                        </ul>
+                       
+                        <p class = "rate">
+                            <span>1500 Rupees /</span> Per Night
+                        </p>
+                      <a href="Restaurent.html">  <button type = "button" class = "btn">book now</button></a>
+                    </div>
+                </article>
+               
+                <!-- end of single room -->
+            </div>
+        </section>
+
+
+        <section class = "customers" id = "customers">
+            <div class = "sec-width">
+                <div class = "title">
+                    <h2>customers</h2>
+                </div>
+                <div class = "customers-container">
+                    <!-- single customer -->
+                    <div class = "customer">
+                        <div class = "rating">
+                            <span><i class = "fas fa-star"></i></span>
+                            <span><i class = "fas fa-star"></i></span>
+                            <span><i class = "fas fa-star"></i></span>
+                            <span><i class = "fas fa-star"></i></span>
+                            <span><i class = "far fa-star"></i></span>
+                        </div>
+                        <h3>We Loved it</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat beatae veritatis provident eveniet praesentium veniam cum iusto distinctio esse, vero est autem, eius optio cupiditate?</p>
+                        <img src = "image/cus1.jpg" alt = "customer image">
+                        <span>Customer Name, Country</span>
+                    </div>
+                    <!-- end of single customer -->
+                    <!-- single customer -->
+                    <div class = "customer">
+                        <div class = "rating">
+                            <span><i class = "fas fa-star"></i></span>
+                            <span><i class = "fas fa-star"></i></span>
+                            <span><i class = "fas fa-star"></i></span>
+                            <span><i class = "fas fa-star"></i></span>
+                            <span><i class = "far fa-star"></i></span>
+                        </div>
+                        <h3>Comfortable Living</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat beatae veritatis provident eveniet praesentium veniam cum iusto distinctio esse, vero est autem, eius optio cupiditate?</p>
+                        <img src = "image/cus2.jpg" alt = "customer image">
+                        <span>Customer Name, Country</span>
+                    </div>
+                    <!-- end of single customer -->
+                    <!-- single customer -->
+                    <div class = "customer">
+                        <div class = "rating">
+                            <span><i class = "fas fa-star"></i></span>
+                            <span><i class = "fas fa-star"></i></span>
+                            <span><i class = "fas fa-star"></i></span>
+                            <span><i class = "fas fa-star"></i></span>
+                            <span><i class = "far fa-star"></i></span>
+                        </div>
+                        <h3>Nice Place</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat beatae veritatis provident eveniet praesentium veniam cum iusto distinctio esse, vero est autem, eius optio cupiditate?</p>
+                        <img src = "image/cus3.jpg" alt = "customer image">
+                        <span>Customer Name, Country</span>
+                    </div>
+                    <!-- end of single customer -->
+                </div>
+            </div>
+        </section>
+        <!-- end of body content -->
+        
+        <!-- footer -->
+        <footer class = "footer">
+            <div class = "footer-container">
+                <div>
+                    <h2>About Us </h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque sapiente mollitia doloribus provident? Eos quisquam aliquid vel dolorum, impedit culpa.</p>
+                    <ul class = "social-icons">
+                        <li class = "flex">
+                            <i class = "fa fa-twitter fa-2x"></i>
+                        </li>
+                        <li class = "flex">
+                            <i class = "fa fa-facebook fa-2x"></i>
+                        </li>
+                        <li class = "flex">
+                            <i class = "fa fa-instagram fa-2x"></i>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2>Useful Links</h2>
+                    <a href = "#">Blog</a>
+                    <a href = "#">Rooms</a>
+                    <a href = "#">Subscription</a>
+                    <a href = "#">Gift Card</a>
+                </div>
+
+                <div>
+                    <h2>Privacy</h2>
+                    <a href = "#">Career</a>
+                    <a href = "#">About Us</a>
+                    <a href = "#">Contact Us</a>
+                    <a href = "#">Services</a>
+                </div>
+
+                <div>
+                    <h2>Have A Question</h2>
+                    <div class = "contact-item">
+                        <span>
+                            <i class = "fas fa-map-marker-alt"></i>
+                        </span>
+                        <span>
+                            203 Fake St.Mountain View, San Francisco, California, USA
+                        </span>
+                    </div>
+                    <div class = "contact-item">
+                        <span>
+                            <i class = "fas fa-phone-alt"></i>
+                        </span>
+                        <span>
+                            +84545 37534 48
+                        </span>
+                    </div>
+                    <div class = "contact-item">
+                        <span>
+                            <i class = "fas fa-envelope"></i>
+                        </span>
+                        <span>
+                            info@domain.com
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end of footer -->
+
+
+        
+        <script src="script.js"></script>
+    </body>
+</html>

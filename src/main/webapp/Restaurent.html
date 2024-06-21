@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Booking</title>
+    <link rel="stylesheet" href="Restaurent.css">
+    <style>
+    /* Your CSS styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    padding: 10px;
+    background-color: rgb(183, 175, 177);
+    justify-content: center;
+    
+}
+
+h1 {
+    text-align: center;
+}
+
+#bookingForm {
+    width: 100%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #a49999;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+label{
+    left: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#confirmation {
+    text-align: center;
+}
+    
+    </style>
+</head>
+<body>
+    <h1>Restaurant Booking System</h1>
+    <form action="Restaurent" method="post">
+    <div id="bookingForm">
+       <div> <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br></div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        <label for="number">Phone Number:</label>
+        <input type="text" id="number" name="phoneNumber" required><br>
+        <label for="seat">Number of Guests:</label>
+        <input type="text" id="seat" min="1" name="numberOfGuests" required><br>
+        
+        <label for="purpose">Purpose:</label>
+        <select id="purpose" name="purpose" required>
+            <option value="" disabled selected>Select Purpose</option>
+            <option value="birthday">Birthday</option>
+            <option value="anniversary">Anniversary</option>
+            <option value="normal">Normal Party</option>
+        </select><br>
+        <label for="email">Staff Number:</label>
+        <button>Contact Now</button><br>
+        <br>
+        <label for="charges">Charges:</label>
+        <input type="text" id="charges" readonly><br>
+        <a href="#" onclick="calculateCharge()">Calculate Charges</a>
+        <button >Book Table</button>
+    </div>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
